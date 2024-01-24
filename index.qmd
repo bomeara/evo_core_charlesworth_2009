@@ -1,0 +1,27 @@
+---
+title: "EvoCore: Charlesworth 2009"
+author: "Brian O'Meara"
+format:
+  revealjs: 
+    theme: dark
+editor: visual
+---
+
+## Common $N_E$
+
+![Table 1 from Charlesworth (2009)](images/Screenshot 2024-01-24 at 6.53.36 PM.png){fig-alt="Estimates of effective population size for different sets of taxa"}
+
+## Bullets
+
+When you click the **Render** button a document will be generated that includes:
+
+-   Content authored with markdown
+-   Output from executable code
+
+## Code
+
+When you click the **Render** button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+1 + 1
+```
