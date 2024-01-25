@@ -149,3 +149,5 @@ ggplot(results, aes(x=s, y=Q, group=Ne)) + geom_line(aes(color=Ne))
 -   What is pi? Is it the circle thing? Dolly Parton's favorite dessert?
 
 ## Citations
+
+This presentation: <https://github.com/bomeara/evo_core_charlesworth_2009>
