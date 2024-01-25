@@ -6,6 +6,7 @@ format:
     theme: dark
     incremental: true   
 editor: visual
+bibliography: references.bib
 ---
 
 ## Reading on $N_E$
@@ -14,13 +15,15 @@ Charlesworth, B. Effective population size and patterns of molecular evolution a
 
 Images from that paper unless otherwise noted.
 
-## Common $N_E$
+## Genetic drift
 
-![Empirical estimates of effective population size](images/table1.png){fig-alt="Table 1 from Charlesworth 2009, showing empirical estimates of effective population size" fig-align="left"}
+"The process of evolutionary change involving the random sampling of genes from the parental generation to produce the offspring generation, causing the composition of the offspring and parental generations to differ."
 
--   Why do they differ so much?
+## Exercise
 
--   Why might this matter?
+Assuming everyone is here, there are 20 students. Everyone pick an integer at random from 1-20 and write it down. Let's write them on the board.
+
+-   Did we each number only once?
 
 ## Offspring count
 
@@ -30,7 +33,25 @@ Imagine a large population. I pick an individual at random to reproduce, then pu
 hist(rpois(n=10000, lambda=1), breaks=seq(from=-0.5, by=1, to=7.5))
 ```
 
+## Common $N_E$
+
+![Empirical estimates of effective population size](images/table1.png){fig-alt="Table 1 from Charlesworth 2009, showing empirical estimates of effective population size" fig-align="left"}
+
+-   Why do they differ so much?
+
+-   Why might this matter?
+
+## Causes of different $N_E$
+
+![](images/box1.png){fig-alt="Box 1 from Charlesworth 2009" fig-align="left"}
+
+## Equation 1
+
+![](images/eq1.png){fig-alt="Equation 1 showing effect of sex ratio" fig-align="left"}
+
 ## Coalescent processes
+
+Using `learnPopGen` [@learnPopGen] to simulate a coalescent process:
 
 ```{r}
 library(ggplot2)
@@ -77,16 +98,19 @@ for (s_value in s) {
 }
 ```
 
-## Plot results
+## Fixation probabilities
 
 First, in terms of lambda (fixation probability as a multiple of the fixation probability of a neutral allele)
-
 
 ```{r, echo=TRUE}
 results$Ne <- as.factor(results$Ne)
 results_truncated <- subset(results, abs(results$s)<= 0.01)
 ggplot(results_truncated, aes(x=s, y=lambda, group=Ne)) + geom_line(aes(color=Ne)) 
 ```
+
+## Q plots
+
+![](images/box5.png){fig-alt="Box 5 from Charlesworth 2009" fig-align="left"}
 
 ## Q plots
 

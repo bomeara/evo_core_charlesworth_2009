@@ -94,7 +94,26 @@
     code span.va { color: #00e0e0; } /* Variable */
     code span.vs { color: #abe338; } /* VerbatimString */
     code span.wa { color: #dcc6e0; } /* Warning */
-  </style>
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
   <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto.css">
   <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -406,6 +425,22 @@ Brian O’Meara
 <p>Charlesworth, B. Effective population size and patterns of molecular evolution and variation.&nbsp;<em>Nat Rev Genet</em>&nbsp;<strong>10</strong>, 195–205 (2009). <a href="https://doi.org/10.1038/nrg2526" class="uri">https://doi.org/10.1038/nrg2526</a>.</p>
 <p>Images from that paper unless otherwise noted.</p>
 </section>
+<section id="genetic-drift" class="slide level2">
+<h2>Genetic drift</h2>
+<p>“The process of evolutionary change involving the random sampling of genes from the parental generation to produce the offspring generation, causing the composition of the offspring and parental generations to differ.”</p>
+</section>
+<section id="exercise" class="slide level2">
+<h2>Exercise</h2>
+<p>Assuming everyone is here, there are 20 students. Everyone pick an integer at random from 1-20 and write it down. Let’s write them on the board.</p>
+<ul>
+<li class="fragment">Did we each number only once?</li>
+</ul>
+</section>
+<section id="offspring-count" class="slide level2">
+<h2>Offspring count</h2>
+<p>Imagine a large population. I pick an individual at random to reproduce, then put it back. Then I pick at random again: perhaps the same one, maybe a different one. I stop when I have the same number of offspring as in the initial population. What are the number of offspring each parent could have?</p>
+
+<img data-src="index_files/figure-revealjs/unnamed-chunk-1-1.png" width="960" class="r-stretch"></section>
 <section id="common-n_e" class="slide level2">
 <h2>Common <span class="math inline">\(N_E\)</span></h2>
 
@@ -414,13 +449,17 @@ Brian O’Meara
 <li class="fragment"><p>Why might this matter?</p></li>
 </ul>
 </section>
-<section id="offspring-count" class="slide level2">
-<h2>Offspring count</h2>
-<p>Imagine a large population. I pick an individual at random to reproduce, then put it back. Then I pick at random again: perhaps the same one, maybe a different one. I stop when I have the same number of offspring as in the initial population. What are the number of offspring each parent could have?</p>
+<section id="causes-of-different-n_e" class="slide level2">
+<h2>Causes of different <span class="math inline">\(N_E\)</span></h2>
 
-<img data-src="index_files/figure-revealjs/unnamed-chunk-1-1.png" width="960" class="r-stretch"></section>
+<img data-src="images/box1.png" alt="Box 1 from Charlesworth 2009" class="r-stretch quarto-figure-left"></section>
+<section id="equation-1" class="slide level2">
+<h2>Equation 1</h2>
+
+<img data-src="images/eq1.png" alt="Equation 1 showing effect of sex ratio" class="r-stretch quarto-figure-left"></section>
 <section id="coalescent-processes" class="slide level2">
 <h2>Coalescent processes</h2>
+<p>Using <code>learnPopGen</code> <span class="citation" data-cites="learnPopGen">(<a href="#/q-plots-1" role="doc-biblioref" onclick="">Revell 2019</a>)</span> to simulate a coalescent process:</p>
 
 <img data-src="index_files/figure-revealjs/unnamed-chunk-2-1.png" width="960" class="r-stretch"></section>
 <section id="selection" class="slide level2">
@@ -459,8 +498,8 @@ Brian O’Meara
 <span id="cb3-9"><a href="#cb3-9"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="plot-results" class="slide level2">
-<h2>Plot results</h2>
+<section id="fixation-probabilities" class="slide level2">
+<h2>Fixation probabilities</h2>
 <p>First, in terms of lambda (fixation probability as a multiple of the fixation probability of a neutral allele)</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>results<span class="sc">$</span>Ne <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(results<span class="sc">$</span>Ne)</span>
@@ -471,6 +510,10 @@ Brian O’Meara
 <img data-src="index_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch"></section>
 <section id="q-plots" class="slide level2">
 <h2>Q plots</h2>
+
+<img data-src="images/box5.png" alt="Box 5 from Charlesworth 2009" class="r-stretch quarto-figure-left"></section>
+<section id="q-plots-1" class="slide level2 smaller scrollable">
+<h2>Q plots</h2>
 <p>Plots of Q, the fixation probability. Note that this is for a wider variety of selection values than above.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">ggplot</span>(results, <span class="fu">aes</span>(<span class="at">x=</span>s, <span class="at">y=</span>Q, <span class="at">group=</span>Ne)) <span class="sc">+</span> <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">color=</span>Ne))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -478,6 +521,11 @@ Brian O’Meara
 </div>
 <img data-src="index_files/figure-revealjs/unnamed-chunk-7-1.png" width="960" class="r-stretch"><div class="footer footer-default">
 
+</div>
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-learnPopGen" class="csl-entry" role="listitem">
+Revell, Liam J. 2019. <span>“learnPopGen: An r Package for Population Genetic Simulation and Numerical Analysis.”</span>
+</div>
 </div>
 </section>
     </div>
