@@ -473,7 +473,7 @@ Brian O’Meara
 <span id="cb1-2"><a href="#cb1-2"></a>p0<span class="ot">=</span><span class="dv">1</span><span class="sc">/</span>Ne</span>
 <span id="cb1-3"><a href="#cb1-3"></a>s<span class="ot">=</span><span class="fl">0.05</span></span>
 <span id="cb1-4"><a href="#cb1-4"></a><span class="fu">par</span>(<span class="at">mfcol=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</span>
-<span id="cb1-5"><a href="#cb1-5"></a>learnPopGen<span class="sc">::</span><span class="fu">drift.selection</span>(<span class="at">w=</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">+</span>s, <span class="dv">1</span>, <span class="dv">1</span><span class="sc">-</span>s), <span class="at">Ne=</span>Ne, <span class="at">p0=</span>p0)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-5"><a href="#cb1-5"></a>learnPopGen<span class="sc">::</span><span class="fu">drift.selection</span>(<span class="at">w=</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">+</span>s, <span class="dv">1</span>, <span class="dv">1</span><span class="sc">-</span>s), <span class="at">Ne=</span>Ne, <span class="at">p0=</span>p0, <span class="at">nrep=</span><span class="dv">50</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="index_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" class="r-stretch"></section>
@@ -526,7 +526,7 @@ Brian O’Meara
 <li class="fragment"><p>What is “putatively neutral”?</p></li>
 <li class="fragment"><p>“Mode of inheritance effects”?</p></li>
 <li class="fragment"><p>Can <span class="math inline">\(N_E\)</span> be bigger than census size?</p></li>
-<li class="fragment"><p>“Sewall-Wright” describes very few populations. Why do we care about it, then?</p></li>
+<li class="fragment"><p>“Wright-Fisher” describes very few populations. Why do we care about it, then?</p></li>
 <li class="fragment"><p>Fast timescale approximation? Why? When?</p></li>
 <li class="fragment"><p>What effect does extinction of demes in metapopulation have on drift?</p></li>
 </ul>

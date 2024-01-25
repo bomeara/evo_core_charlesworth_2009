@@ -30,7 +30,7 @@ Assuming everyone is here, there are 20 students. Everyone pick an integer at ra
 Imagine a large population. I pick an individual at random to reproduce, then put it back. Then I pick at random again: perhaps the same one, maybe a different one. I stop when I have the same number of offspring as in the initial population. What are the number of offspring each parent could have?
 
 ```{r}
-hist(rpois(n=10000, lambda=1), breaks=seq(from=-0.5, by=1, to=7.5))
+hist(rpois(n=10000, lambda=1), breaks=seq(from=-0.5, by=1, to=9.5))
 ```
 
 ## Common $N_E$
@@ -74,7 +74,7 @@ Ne=500
 p0=1/Ne
 s=0.05
 par(mfcol=c(1,1))
-learnPopGen::drift.selection(w=c(1+s, 1, 1-s), Ne=Ne, p0=p0)
+learnPopGen::drift.selection(w=c(1+s, 1, 1-s), Ne=Ne, p0=p0, nrep=50)
 ```
 
 ## Q from the paper
@@ -128,7 +128,7 @@ ggplot(results, aes(x=s, y=Q, group=Ne)) + geom_line(aes(color=Ne))
 
 -   Can $N_E$ be bigger than census size?
 
--   "Sewall-Wright" describes very few populations. Why do we care about it, then?
+-   "Wright-Fisher" describes very few populations. Why do we care about it, then?
 
 -   Fast timescale approximation? Why? When?
 
