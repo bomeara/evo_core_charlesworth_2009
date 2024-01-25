@@ -11,7 +11,7 @@ bibliography: references.bib
 
 ## Reading on $N_E$
 
-Charlesworth, B. Effective population size and patterns of molecular evolution and variation. *Nat Rev Genet* **10**, 195--205 (2009). <https://doi.org/10.1038/nrg2526>.
+Charlesworth, B. Effective population size and patterns of molecular evolution and variation. *Nat Rev Genet* **10**, 195--205 (2009). <https://doi.org/10.1038/nrg2526> [@charlesworth2009]
 
 Images from that paper unless otherwise noted.
 
@@ -56,11 +56,15 @@ Using `learnPopGen` [@learnPopGen] to simulate a coalescent process:
 ```{r}
 library(ggplot2)
 library(learnPopGen)
-par(mfcol=c(1,3))
-for (i in sequence(3)) {
+par(mfcol=c(1,4))
+for (i in sequence(4)) {
 	learnPopGen::coalescent.plot(n=5*i) 
 }
 ```
+
+## Q plots
+
+![](images/box5.png){fig-alt="Box 5 from Charlesworth 2009" fig-align="left"}
 
 ## Selection
 
@@ -110,12 +114,38 @@ ggplot(results_truncated, aes(x=s, y=lambda, group=Ne)) + geom_line(aes(color=Ne
 
 ## Q plots
 
-![](images/box5.png){fig-alt="Box 5 from Charlesworth 2009" fig-align="left"}
-
-## Q plots
-
 Plots of Q, the fixation probability. Note that this is for a wider variety of selection values than above.
 
 ```{r, echo=TRUE}
 ggplot(results, aes(x=s, y=Q, group=Ne)) + geom_line(aes(color=Ne))
 ```
+
+## Questions
+
+-   What is "putatively neutral"?
+
+-   "Mode of inheritance effects"?
+
+-   Can $N_E$ be bigger than census size?
+
+-   "Sewall-Wright" describes very few populations. Why do we care about it, then?
+
+-   Fast timescale approximation? Why? When?
+
+-   What effect does extinction of demes in metapopulation have on drift?
+
+## Questions
+
+-   What is a deterministic force?
+
+-   Mutation rate and pop size: how do they relate?
+
+-   How does $N_E$ affect conservation?
+
+-   Where do the equations come from?
+
+-   Why use just one locus for spatial structure?
+
+-   What is pi? Is it the circle thing? Dolly Parton's favorite dessert?
+
+## Citations

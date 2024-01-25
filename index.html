@@ -422,7 +422,7 @@ Brian O’Meara
 </section>
 <section id="reading-on-n_e" class="slide level2">
 <h2>Reading on <span class="math inline">\(N_E\)</span></h2>
-<p>Charlesworth, B. Effective population size and patterns of molecular evolution and variation.&nbsp;<em>Nat Rev Genet</em>&nbsp;<strong>10</strong>, 195–205 (2009). <a href="https://doi.org/10.1038/nrg2526" class="uri">https://doi.org/10.1038/nrg2526</a>.</p>
+<p>Charlesworth, B. Effective population size and patterns of molecular evolution and variation.&nbsp;<em>Nat Rev Genet</em>&nbsp;<strong>10</strong>, 195–205 (2009). <a href="https://doi.org/10.1038/nrg2526" class="uri">https://doi.org/10.1038/nrg2526</a> <span class="citation" data-cites="charlesworth2009">(<a href="#/citations" role="doc-biblioref" onclick="">Charlesworth 2009</a>)</span></p>
 <p>Images from that paper unless otherwise noted.</p>
 </section>
 <section id="genetic-drift" class="slide level2">
@@ -459,9 +459,13 @@ Brian O’Meara
 <img data-src="images/eq1.png" alt="Equation 1 showing effect of sex ratio" class="r-stretch quarto-figure-left"></section>
 <section id="coalescent-processes" class="slide level2">
 <h2>Coalescent processes</h2>
-<p>Using <code>learnPopGen</code> <span class="citation" data-cites="learnPopGen">(<a href="#/q-plots-1" role="doc-biblioref" onclick="">Revell 2019</a>)</span> to simulate a coalescent process:</p>
+<p>Using <code>learnPopGen</code> <span class="citation" data-cites="learnPopGen">(<a href="#/citations" role="doc-biblioref" onclick="">Revell 2019</a>)</span> to simulate a coalescent process:</p>
 
 <img data-src="index_files/figure-revealjs/unnamed-chunk-2-1.png" width="960" class="r-stretch"></section>
+<section id="q-plots" class="slide level2">
+<h2>Q plots</h2>
+
+<img data-src="images/box5.png" alt="Box 5 from Charlesworth 2009" class="r-stretch quarto-figure-left"></section>
 <section id="selection" class="slide level2">
 <h2>Selection</h2>
 <div class="cell">
@@ -508,21 +512,45 @@ Brian O’Meara
 
 </div>
 <img data-src="index_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch"></section>
-<section id="q-plots" class="slide level2">
-<h2>Q plots</h2>
-
-<img data-src="images/box5.png" alt="Box 5 from Charlesworth 2009" class="r-stretch quarto-figure-left"></section>
-<section id="q-plots-1" class="slide level2 smaller scrollable">
+<section id="q-plots-1" class="slide level2">
 <h2>Q plots</h2>
 <p>Plots of Q, the fixation probability. Note that this is for a wider variety of selection values than above.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">ggplot</span>(results, <span class="fu">aes</span>(<span class="at">x=</span>s, <span class="at">y=</span>Q, <span class="at">group=</span>Ne)) <span class="sc">+</span> <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">color=</span>Ne))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="index_files/figure-revealjs/unnamed-chunk-7-1.png" width="960" class="r-stretch"><div class="footer footer-default">
+<img data-src="index_files/figure-revealjs/unnamed-chunk-7-1.png" width="960" class="r-stretch"></section>
+<section id="questions" class="slide level2">
+<h2>Questions</h2>
+<ul>
+<li class="fragment"><p>What is “putatively neutral”?</p></li>
+<li class="fragment"><p>“Mode of inheritance effects”?</p></li>
+<li class="fragment"><p>Can <span class="math inline">\(N_E\)</span> be bigger than census size?</p></li>
+<li class="fragment"><p>“Sewall-Wright” describes very few populations. Why do we care about it, then?</p></li>
+<li class="fragment"><p>Fast timescale approximation? Why? When?</p></li>
+<li class="fragment"><p>What effect does extinction of demes in metapopulation have on drift?</p></li>
+</ul>
+</section>
+<section id="questions-1" class="slide level2">
+<h2>Questions</h2>
+<ul>
+<li class="fragment"><p>What is a deterministic force?</p></li>
+<li class="fragment"><p>Mutation rate and pop size: how do they relate?</p></li>
+<li class="fragment"><p>How does <span class="math inline">\(N_E\)</span> affect conservation?</p></li>
+<li class="fragment"><p>Where do the equations come from?</p></li>
+<li class="fragment"><p>Why use just one locus for spatial structure?</p></li>
+<li class="fragment"><p>What is pi? Is it the circle thing? Dolly Parton’s favorite dessert?</p></li>
+</ul>
+</section>
+<section id="citations" class="slide level2 smaller scrollable">
+<h2>Citations</h2>
+<div class="footer footer-default">
 
 </div>
 <div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-charlesworth2009" class="csl-entry" role="listitem">
+Charlesworth, Brian. 2009. <span>“Effective Population Size and Patterns of Molecular Evolution and Variation.”</span> <em>Nature Reviews Genetics</em> 10 (3): 195–205. <a href="https://doi.org/10.1038/nrg2526">https://doi.org/10.1038/nrg2526</a>.
+</div>
 <div id="ref-learnPopGen" class="csl-entry" role="listitem">
 Revell, Liam J. 2019. <span>“learnPopGen: An r Package for Population Genetic Simulation and Numerical Analysis.”</span>
 </div>
