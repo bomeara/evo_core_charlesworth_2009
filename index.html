@@ -29,6 +29,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+      }
+    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    div.sourceCode
+      { color: #f8f8f2;  }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #f8f8f2; } /* Normal */
+    code span.al { color: #f07178; background-color: #2a0f15; font-weight: bold; } /* Alert */
+    code span.an { color: #d4d0ab; } /* Annotation */
+    code span.at { color: #00e0e0; } /* Attribute */
+    code span.bn { color: #d4d0ab; } /* BaseN */
+    code span.bu { color: #abe338; } /* BuiltIn */
+    code span.cf { color: #ffa07a; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #abe338; } /* Char */
+    code span.cn { color: #ffd700; } /* Constant */
+    code span.co { color: #f8f8f2; font-style: italic; } /* Comment */
+    code span.cv { color: #ffd700; } /* CommentVar */
+    code span.do { color: #f8f8f2; } /* Documentation */
+    code span.dt { color: #ffa07a; } /* DataType */
+    code span.dv { color: #d4d0ab; } /* DecVal */
+    code span.er { color: #f07178; text-decoration: underline; } /* Error */
+    code span.ex { color: #00e0e0; font-weight: bold; } /* Extension */
+    code span.fl { color: #d4d0ab; } /* Float */
+    code span.fu { color: #ffa07a; } /* Function */
+    code span.im { color: #abe338; } /* Import */
+    code span.in { color: #d4d0ab; } /* Information */
+    code span.kw { color: #ffa07a; font-weight: bold; } /* Keyword */
+    code span.op { color: #ffa07a; } /* Operator */
+    code span.ot { color: #00e0e0; } /* Other */
+    code span.pp { color: #dcc6e0; } /* Preprocessor */
+    code span.re { color: #00e0e0; background-color: #f8f8f2; } /* RegionMarker */
+    code span.sc { color: #abe338; } /* SpecialChar */
+    code span.ss { color: #abe338; } /* SpecialString */
+    code span.st { color: #abe338; } /* String */
+    code span.va { color: #00e0e0; } /* Variable */
+    code span.vs { color: #abe338; } /* VerbatimString */
+    code span.wa { color: #dcc6e0; } /* Warning */
   </style>
   <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto.css">
   <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -336,27 +401,82 @@ Brian O’Meara
 </div>
 
 </section>
+<section id="reading-on-n_e" class="slide level2">
+<h2>Reading on <span class="math inline">\(N_E\)</span></h2>
+<p>Charlesworth, B. Effective population size and patterns of molecular evolution and variation.&nbsp;<em>Nat Rev Genet</em>&nbsp;<strong>10</strong>, 195–205 (2009). <a href="https://doi.org/10.1038/nrg2526" class="uri">https://doi.org/10.1038/nrg2526</a>.</p>
+<p>Images from that paper unless otherwise noted.</p>
+</section>
 <section id="common-n_e" class="slide level2">
 <h2>Common <span class="math inline">\(N_E\)</span></h2>
 
-<img data-src="images/Screenshot%202024-01-24%20at%206.53.36%20PM.png" alt="Estimates of effective population size for different sets of taxa" class="r-stretch quarto-figure-center"><p class="caption">Table 1 from Charlesworth (2009)</p></section>
-<section id="bullets" class="slide level2">
-<h2>Bullets</h2>
-<p>When you click the <strong>Render</strong> button a document will be generated that includes:</p>
-<ul>
-<li>Content authored with markdown</li>
-<li>Output from executable code</li>
+<img data-src="images/table1.png" alt="Table 1 from Charlesworth 2009, showing empirical estimates of effective population size" class="r-stretch quarto-figure-left"><p class="caption">Empirical estimates of effective population size</p><ul>
+<li class="fragment"><p>Why do they differ so much?</p></li>
+<li class="fragment"><p>Why might this matter?</p></li>
 </ul>
 </section>
-<section id="code" class="slide level2">
-<h2>Code</h2>
-<p>When you click the <strong>Render</strong> button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:</p>
+<section id="offspring-count" class="slide level2">
+<h2>Offspring count</h2>
+<p>Imagine a large population. I pick an individual at random to reproduce, then put it back. Then I pick at random again: perhaps the same one, maybe a different one. I stop when I have the same number of offspring as in the initial population. What are the number of offspring each parent could have?</p>
+
+<img data-src="index_files/figure-revealjs/unnamed-chunk-1-1.png" width="960" class="r-stretch"></section>
+<section id="coalescent-processes" class="slide level2">
+<h2>Coalescent processes</h2>
+
+<img data-src="index_files/figure-revealjs/unnamed-chunk-2-1.png" width="960" class="r-stretch"></section>
+<section id="selection" class="slide level2">
+<h2>Selection</h2>
 <div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>Ne<span class="ot">=</span><span class="dv">500</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a>p0<span class="ot">=</span><span class="dv">1</span><span class="sc">/</span>Ne</span>
+<span id="cb1-3"><a href="#cb1-3"></a>s<span class="ot">=</span><span class="fl">0.05</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="fu">par</span>(<span class="at">mfcol=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</span>
+<span id="cb1-5"><a href="#cb1-5"></a>learnPopGen<span class="sc">::</span><span class="fu">drift.selection</span>(<span class="at">w=</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">+</span>s, <span class="dv">1</span>, <span class="dv">1</span><span class="sc">-</span>s), <span class="at">Ne=</span>Ne, <span class="at">p0=</span>p0)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
 </div>
+<img data-src="index_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" class="r-stretch"></section>
+<section id="q-from-the-paper" class="slide level2">
+<h2>Q from the paper</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>Q_estimate <span class="ot">&lt;-</span> <span class="cf">function</span>(Ne, s) {</span>
+<span id="cb2-2"><a href="#cb2-2"></a>    <span class="co"># Let N = Ne</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a>    N <span class="ot">&lt;-</span> Ne</span>
+<span id="cb2-4"><a href="#cb2-4"></a>    Q <span class="ot">&lt;-</span> (Ne <span class="sc">*</span> s <span class="sc">/</span> N ) <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">-</span> <span class="fu">exp</span>(<span class="sc">-</span><span class="dv">2</span><span class="sc">*</span>Ne<span class="sc">*</span>s))</span>
+<span id="cb2-5"><a href="#cb2-5"></a>    <span class="fu">return</span>(Q)</span>
+<span id="cb2-6"><a href="#cb2-6"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="footer footer-default">
+</section>
+<section id="now-try-a-bunch-of-values" class="slide level2">
+<h2>Now try a bunch of values</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>s <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from=</span><span class="sc">-</span><span class="fl">0.1</span>, <span class="at">to=</span><span class="fl">0.1</span>, <span class="at">length.out=</span><span class="dv">500</span>)</span>
+<span id="cb3-2"><a href="#cb3-2"></a>Ne <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">1e1</span>, <span class="dv">25</span>, <span class="dv">50</span>, <span class="fl">1e2</span>, <span class="dv">500</span>)</span>
+<span id="cb3-3"><a href="#cb3-3"></a>results <span class="ot">&lt;-</span> <span class="fu">data.frame</span>()</span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="cf">for</span> (s_value <span class="cf">in</span> s) {</span>
+<span id="cb3-5"><a href="#cb3-5"></a>    <span class="cf">for</span> (Ne_value <span class="cf">in</span> Ne) {</span>
+<span id="cb3-6"><a href="#cb3-6"></a>        Q <span class="ot">&lt;-</span> <span class="fu">Q_estimate</span>(Ne_value, s_value)</span>
+<span id="cb3-7"><a href="#cb3-7"></a>        results <span class="ot">&lt;-</span> <span class="fu">rbind</span>(results, <span class="fu">data.frame</span>(<span class="at">Ne=</span>Ne_value, <span class="at">s=</span>s_value, <span class="at">Q=</span>Q, <span class="at">lambda=</span>Q<span class="sc">*</span><span class="dv">2</span><span class="sc">*</span>Ne_value ))        </span>
+<span id="cb3-8"><a href="#cb3-8"></a>    }</span>
+<span id="cb3-9"><a href="#cb3-9"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="plot-results" class="slide level2">
+<h2>Plot results</h2>
+<p>First, in terms of lambda (fixation probability as a multiple of the fixation probability of a neutral allele)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>results<span class="sc">$</span>Ne <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(results<span class="sc">$</span>Ne)</span>
+<span id="cb4-2"><a href="#cb4-2"></a>results_truncated <span class="ot">&lt;-</span> <span class="fu">subset</span>(results, <span class="fu">abs</span>(results<span class="sc">$</span>s)<span class="sc">&lt;=</span> <span class="fl">0.01</span>)</span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="fu">ggplot</span>(results_truncated, <span class="fu">aes</span>(<span class="at">x=</span>s, <span class="at">y=</span>lambda, <span class="at">group=</span>Ne)) <span class="sc">+</span> <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">color=</span>Ne)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="index_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch"></section>
+<section id="q-plots" class="slide level2">
+<h2>Q plots</h2>
+<p>Plots of Q, the fixation probability. Note that this is for a wider variety of selection values than above.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">ggplot</span>(results, <span class="fu">aes</span>(<span class="at">x=</span>s, <span class="at">y=</span>Q, <span class="at">group=</span>Ne)) <span class="sc">+</span> <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">color=</span>Ne))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="index_files/figure-revealjs/unnamed-chunk-7-1.png" width="960" class="r-stretch"><div class="footer footer-default">
 
 </div>
 </section>
